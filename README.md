@@ -22,20 +22,20 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## State Management dengan Zustand
 
-### Mengapa Menggunakan Zustand?
-Zustand adalah alat yang membantu mengelola data dalam aplikasi React dengan cara yang lebih sederhana. Dibandingkan dengan Redux, Zustand lebih mudah digunakan karena memiliki sintaks yang lebih ringkas dan tidak memerlukan banyak konfigurasi tambahan. Selain itu, Zustand juga bisa menyimpan data secara otomatis di localStorage, sehingga data tetap ada meskipun halaman direfresh.
+### Alasan Menggunakan Zustand
+Zustand adalah library yang membantu mengelola data (state management) dalam aplikasi React / Next dengan cara yang lebih sederhana dibandingkan dengan Redux. Zustand lebih mudah digunakan karena syntax lebih ringkas dan tidak memerlukan banyak konfigurasi tambahan. Zustand juga bisa menyimpan data secara otomatis di localStorage, sehingga data tetap ada meskipun halaman di-refresh / di-reload .
 
 ### Implementasi Zustand di Aplikasi To-Do List
-Pada aplikasi ini, Zustand digunakan untuk mengelola daftar tugas (tasks), input tugas baru, dan filter status tugas. Berikut adalah langkah-langkah implementasi:
+Zustand digunakan untuk mengelola daftar tugas (tasks), input tugas baru, filter status tugas, dan hapus tugas. Berikut adalah langkah-langkah implementasi:
 
 1. **Membuat Store dengan Zustand**
-   Kita membuat store menggunakan fungsi `create` dari Zustand. Di dalamnya, kita mendefinisikan state seperti `tasks`, `taskInput`, dan `filter`, serta beberapa fungsi untuk mengubah state tersebut.
+   Membuat store menggunakan fungsi `create` dari Zustand. Di dalamnya, mendefinisikan state  `tasks`, `taskInput`, dan `filter`, serta beberapa fungsi (add, complete, delete) untuk mengubah state tersebut .
 
-2. **Menyimpan State secara Persisten**
-   Kita menggunakan middleware `persist` dari Zustand untuk menyimpan state ke localStorage agar data tetap ada meskipun halaman direfresh.
+2. **Menyimpan State secara Tetap (Persisten)**
+   Menggunakan middleware `persist` dari Zustand untuk menyimpan state ke localStorage agar data tetap tersimpan meskipun halaman di-refresh / di-reload.
 
 3. **Menggunakan Store di Komponen**
-   Dengan memanfaatkan `useStore`, kita bisa membaca dan memodifikasi state di berbagai komponen aplikasi, seperti menambahkan tugas baru, mengubah status tugas, dan menghapus tugas.
+   Menggunakan `useStore` untuk membaca dan memodifikasi state di berbagai komponen aplikasi, seperti menambahkan tugas baru, mengubah status tugas, dan menghapus tugas.
 
 Berikut adalah contoh kode implementasi store dengan Zustand:
 
