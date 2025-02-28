@@ -1,11 +1,11 @@
 "use client";
 
-import TaskCard from "@/components/TaskCard";
 import { IoMdAddCircle } from "react-icons/io";
 import { handleAddTask, handleInputChange } from "@/utils/handleTask";
 import FilterButtons from "@/components/FilterButtons";
 import getFilteredTasks from "@/utils/getFilteredTask";
 import useStore from "@/stores/store";
+import TaskList from "@/components/TaskCard";
 
 export default function Home() {
   const {
@@ -52,7 +52,7 @@ export default function Home() {
         className="flex w-full flex-col items-center justify-center gap-3"
       >
         {filteredTasks.map((task) => (
-          <TaskCard
+          <TaskList
             key={task.id}
             task={task}
             toggleTaskComplete={toggleTaskComplete}

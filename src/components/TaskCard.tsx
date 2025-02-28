@@ -2,7 +2,7 @@ import { ITaskCard } from "@/types/types";
 import { MdDeleteForever } from "react-icons/md";
 import StatusBadge from "./Status";
 
-export default function TaskCard({
+export default function TaskList({
   task,
   toggleTaskComplete,
   deleteTask,
