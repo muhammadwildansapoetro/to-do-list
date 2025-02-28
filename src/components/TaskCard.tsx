@@ -1,18 +1,14 @@
 import { ITaskCard } from "@/types/types";
 import { MdDeleteForever } from "react-icons/md";
+import StatusBadge from "./Status";
 
 export default function TaskCard({
   task,
   toggleTaskComplete,
   deleteTask,
 }: ITaskCard) {
-  console.log("task", task);
-
   return (
-    <li
-      key={task.id}
-      className="flex w-full flex-col items-center justify-between gap-5 rounded-lg bg-white p-3 shadow-sm hover:bg-gray-50 md:max-w-[565px] md:flex-row"
-    >
+    <li className="flex w-full flex-col items-center justify-between gap-5 rounded-lg bg-white p-3 shadow-sm hover:bg-gray-50 md:max-w-[565px] md:flex-row">
       <div className="flex items-center gap-5">
         <input
           type="checkbox"
@@ -33,15 +29,7 @@ export default function TaskCard({
         </p>
       </div>
       <div className="flex items-center justify-between gap-3">
-        <p
-          className={`rounded-lg px-3 py-1.5 text-sm ${
-            task.completed
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {task.completed ? "Selesai" : "Belum Selesai"}
-        </p>
+        <StatusBadge completed={task.completed} />
         <button
           onClick={() => deleteTask(task.id)}
           className="flex items-center justify-center gap-1 rounded-lg border border-red-500 px-3 py-1.5 text-red-500 hover:cursor-pointer hover:bg-red-500 hover:text-white focus:outline-none"

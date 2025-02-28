@@ -1,10 +1,15 @@
-// components/FilterButtons.tsx
 import React from "react";
 
 interface FilterButtonsProps {
   filter: string;
   setFilter: (filter: string) => void;
 }
+
+const filterOptions = [
+  { key: "all", label: "Semua", color: "bg-blue-500" },
+  { key: "completed", label: "Selesai", color: "bg-green-500" },
+  { key: "incomplete", label: "Belum Selesai", color: "bg-red-500" },
+];
 
 export default function FilterButtons({
   filter,
@@ -16,36 +21,15 @@ export default function FilterButtons({
         Filter by status
       </p>
       <div className="mb-6 flex items-center gap-3">
-        <button
-          onClick={() => setFilter("all")}
-          className={`${
-            filter === "all"
-              ? "bg-blue-500 font-medium text-white"
-              : "border border-gray-300 bg-white"
-          } rounded px-3 py-1.5 hover:cursor-pointer`}
-        >
-          Semua
-        </button>
-        <button
-          onClick={() => setFilter("completed")}
-          className={`${
-            filter === "completed"
-              ? "bg-green-500 font-medium text-white"
-              : "border border-gray-300 bg-white"
-          } rounded px-3 py-1.5 hover:cursor-pointer`}
-        >
-          Selesai
-        </button>
-        <button
-          onClick={() => setFilter("incomplete")}
-          className={`${
-            filter === "incomplete"
-              ? "bg-red-500 font-medium text-white"
-              : "border border-gray-300 bg-white"
-          } rounded px-3 py-1.5 hover:cursor-pointer`}
-        >
-          Belum Selesai
-        </button>
+        {filterOptions.map(({ key, label, color }) => (
+          <button
+            key={key}
+            onClick={() => setFilter(key)}
+            className={`rounded border border-gray-300 px-3 py-1.5 hover:cursor-pointer ${filter === key ? `${color} font-medium text-white` : ""}`}
+          >
+            {label}
+          </button>
+        ))}
       </div>
     </div>
   );
